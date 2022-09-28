@@ -31,7 +31,7 @@ public class ServicioUsuario {
         ModelResponse respuesta = new ModelResponse();
         int nid= Integer.valueOf(id);
         char t_doc= tdoc.charAt(0);
-        if (nid == 0 || t_doc != 'C' && t_doc != 'P'){
+        if (nid <= 0 || t_doc != 'C' && t_doc != 'P'){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else if (nid == 23445322 && t_doc == 'C'){
             //F_name Esta desde el model Response grabado
@@ -52,7 +52,7 @@ public class ServicioUsuario {
     public @ResponseBody ResponseEntity<ModelResponse> pCliente(@RequestBody ModelRequest request){
         ModelResponse respuesta = new ModelResponse();
 
-        if (request.getId() == 0 || request.getT_doc() != 'C' && request.getT_doc() != 'P'){
+        if (request.getId() <= 0 || request.getT_doc() != 'C' && request.getT_doc() != 'P'){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else if (request.getId() == 23445322 && request.getT_doc() == 'C'){
             //F_name Esta desde el model Response grabado
